@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.toysocialnetwork.controller.AdminController">
+   <children>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+              <tabs>
+                <Tab text="USERS">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <TableView fx:id="userTableView" VBox.vgrow="ALWAYS">
+                                      <columns>
+                                        <TableColumn fx:id="userIdColumn" text="id" />
+                                        <TableColumn fx:id="userFirstNameColumn" text="first_name" />
+                                          <TableColumn fx:id="userLastNameColumn" text="last_name" />
+                                          <TableColumn fx:id="userEmailColumn" text="email" />
+                                          <TableColumn fx:id="userDateOfBirthColumn" text="date_of_birth" />
+                                          <TableColumn fx:id="userGenderColumn" text="gender" />
+                                          <TableColumn fx:id="userCountryColumn" text="country" />
+                                          <TableColumn fx:id="userCityColumn" text="city" />
+                                          <TableColumn fx:id="userPhoneNumberColumn" text="phone" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <HBox VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <TextField fx:id="page" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#elementsPerPageChanged" promptText="page" HBox.hgrow="ALWAYS" />
+                                          <Button fx:id="previousButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goToPreviousPage" text="&lt;" HBox.hgrow="ALWAYS" />
+                                          <Button fx:id="nextButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goToNextPage" text="&gt;" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <ButtonBar VBox.vgrow="ALWAYS">
+                                      <buttons>
+                                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleCreateEvent" text="CREATE" />
+                                          <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleDeleteEvent" text="DELETE" />
+                                          <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleUpdateEvent" text="UPDATE" />
+                                      </buttons>
+                                    </ButtonBar>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="FRIENDSHIPS">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <TableView fx:id="friendshipTableView" VBox.vgrow="ALWAYS">
+                                      <columns>
+                                        <TableColumn fx:id="friendshipIdFirstUserColumn" text="first_id" />
+                                        <TableColumn fx:id="friendshipIdSecondUserColumn" text="second_id" />
+                                          <TableColumn fx:id="friendshipFriendsFromColumn" prefWidth="100.0" text="friends_from" />
+                                          <TableColumn fx:id="friendshipStateColumn" text="state" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <HBox VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <TextField fx:id="pageF" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyTyped="#elementsPerPageChangedF" promptText="page" HBox.hgrow="ALWAYS" />
+                                          <Button fx:id="previousButtonF" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goToPreviousPageF" text="&lt;" HBox.hgrow="ALWAYS" />
+                                          <Button fx:id="nextButtonF" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#goToNextPageF" text="&gt;" HBox.hgrow="ALWAYS" />
+                                       </children>
+                                    </HBox>
+                                    <ButtonBar VBox.vgrow="ALWAYS">
+                                      <buttons>
+                                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleCreateFriendshipEvent" text="CREATE" />
+                                          <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleDeleteFriendshipEvent" text="DELETE" />
+                                          <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleAcceptEvent" text="ACCEPT" />
+                                          <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleRejectEvent" text="REJECT" />
+                                      </buttons>
+                                    </ButtonBar>
+                                    <ButtonBar VBox.vgrow="ALWAYS">
+                                      <buttons>
+                                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleMSCEvent" text="MSC" />
+                                          <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleCNEvent" text="CN" />
+                                      </buttons>
+                                    </ButtonBar>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              <Tab text="MESSAGES">
+                  <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0">
+                           <children>
+                              <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <TableView fx:id="messageTableView" VBox.vgrow="ALWAYS">
+                                      <columns>
+                                        <TableColumn fx:id="messageIdColumn" text="id" />
+                                        <TableColumn fx:id="messageFromColumn" text="from" />
+                                          <TableColumn fx:id="messageToColumn" text="to" />
+                                          <TableColumn fx:id="messageMessageColumn" text="message" />
+                                          <TableColumn fx:id="messageSentAtColumn" text="sent_at" />
+                                          <TableColumn fx:id="messageReplyColumn" text="reply" />
+                                      </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                    </TableView>
+                                    <ButtonBar VBox.vgrow="ALWAYS">
+                                      <buttons>
+                                        <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleCreateMessageEvent" text="CREATE" />
+                                          <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#handleDeleteMessageEvent" text="DELETE" />
+                                          <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" text="SHOW" />
+                                      </buttons>
+                                    </ButtonBar>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </AnchorPane>
+                  </content>
+              </Tab>
+                  <Tab text="ACCOUNTS">
+                      <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0">
+                              <children>
+                              <VBox alignment="CENTER" layoutX="14.0" layoutY="14.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                        <TableView fx:id="accountsTableView" VBox.vgrow="ALWAYS">
+                                            <columns>
+                                                <TableColumn fx:id="accountAccIdColumn" text="acc_id" />
+                                                <TableColumn fx:id="accountIdUserColumn" text="id_user" />
+                                                <TableColumn fx:id="accountUsernameColumn" text="username" />
+                                                <TableColumn fx:id="accountPasswordColumn" text="password" />
+                                                <TableColumn fx:id="accountAccStateColumn" text="acc_state" />
+                                                <TableColumn fx:id="accountAccDateColumn" text="acc_date" />
+                                                <TableColumn fx:id="accountLockedDateColumn" text="locked_date" />
+                                                <TableColumn fx:id="accountLockedTimeColumn" text="locked_time" />
+                                            </columns>
+                                       <columnResizePolicy>
+                                          <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                       </columnResizePolicy>
+                                        </TableView>
+                                 </children>
+                              </VBox>
+                                  <!--<ButtonBar layoutX="14.0" layoutY="304.0" prefHeight="40.0" prefWidth="280.0">
+                                      <buttons>
+                                          <Button mnemonicParsing="false" onAction="#handleCreateEvent" text="CREATE" />
+                                          <Button mnemonicParsing="false" onAction="#handleDeleteEvent" text="DELETE" />
+                                          <Button mnemonicParsing="false" onAction="#handleUpdateEvent" text="UPDATE" />
+                                      </buttons>
+                                  </ButtonBar>
+                                  <Button fx:id="previousButton" layoutX="380.0" layoutY="224.0" mnemonicParsing="false" onAction="#goToPreviousPage" text="&lt;" />
+                                  <Button fx:id="nextButton" layoutX="419.0" layoutY="224.0" mnemonicParsing="false" onAction="#goToNextPage" text="&gt;" />
+                                  <TextField fx:id="page" layoutX="14.0" layoutY="224.0" onKeyTyped="#elementsPerPageChanged" prefHeight="25.0" prefWidth="50.0" promptText="page" />-->
+                              </children>
+                        </AnchorPane>
+                      </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
